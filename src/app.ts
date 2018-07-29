@@ -10,7 +10,15 @@ const app = new Koa()
 app.use(cors({credentials: true}))
 app.use(session({maxAge: 20 * 60 * 1000, store: new RedisStore()}))
 app.use(koaBody())
-
+/*
+app.use(auth(
+  (principals) => {
+    // authorization
+  },
+  (token) => {
+    // login authentication
+  }))
+ */
 app.use(router.routes())
 app.use(router.allowedMethods())
 
